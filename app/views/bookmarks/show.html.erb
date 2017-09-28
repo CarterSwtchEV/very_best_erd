@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.users.present? %>
+          <a href="/users/<%= @bookmark.user_id %>">
+            <%= @bookmark.users.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Venue</dt>
-      <dd><%= @bookmark.venue_id %></dd>
+      <dd>
+        <% if @bookmark.venues.present? %>
+          <a href="/venues/<%= @bookmark.venue_id %>">
+            <%= @bookmark.venues.neighborhood_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Dish</dt>
-      <dd><%= @bookmark.dish_id %></dd>
+      <dd>
+        <% if @bookmark.dishes.present? %>
+          <a href="/dishes/<%= @bookmark.dish_id %>">
+            <%= @bookmark.dishes.cuisines_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
