@@ -39,6 +39,15 @@
         <%= select_tag(:dish_id, options_from_collection_for_select(Dish.all, :id, :cuisines_id, @bookmark.dish_id), :class => "form-control") %>
       </div>
 
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @bookmark.notes %></textarea>
+      </div>
+
       <button class="btn btn-warning">
         Update Bookmark
       </button>

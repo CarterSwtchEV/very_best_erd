@@ -10,11 +10,11 @@ class Dish < ApplicationRecord
 
   # Indirect associations
 
-  has_many   :venues,
+  has_many   :specialist_venues,
              :through => :bookmarks,
              :source => :venues
 
-  has_many   :users,
+  has_many   :fans,
              :through => :bookmarks,
              :source => :users
 
