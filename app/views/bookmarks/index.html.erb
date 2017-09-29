@@ -9,6 +9,11 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+    <%= f.label :notes_cont, "Notes contains" %>
+    <%= f.text_field :notes_cont, :class => "form-control", :placeholder => "Notes contains" %>
+  </div>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -53,6 +58,16 @@
       <%= f.text_field :users_email_cont, :class => "form-control", :placeholder => "User email contains" %>
     </div>
 
+<div class="form-group">
+      <%= f.label :dishes_name_cont, "Dish name contains" %>
+      <%= f.text_field :dishes_name_cont, :class => "form-control", :placeholder => "Dish name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :venues_name_cont, "Venue name contains" %>
+      <%= f.text_field :venues_name_cont, :class => "form-control", :placeholder => "Venue name contains" %>
+    </div>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/bookmarks" class="btn btn-default btn-block mb-1">Clear filters</a>
@@ -70,6 +85,7 @@
         <th>User</th>
         <th>Venue</th>
         <th>Dish</th>
+        <th>Notes</th>
         <th>Actions</th>
       </tr>
 
@@ -85,17 +101,18 @@
         <td>
           <% if bookmark.venues.present? %>
             <a href="/venues/<%= bookmark.venues.id %>">
-              <%= bookmark.venues.neighborhood_id %>
+              <%= bookmark.venues.name %>
             </a>
           <% end %>
         </td>
         <td>
           <% if bookmark.dishes.present? %>
             <a href="/dishes/<%= bookmark.dishes.id %>">
-              <%= bookmark.dishes.cuisines_id %>
+              <%= bookmark.dishes.name %>
             </a>
           <% end %>
         </td>
+        <td><%= bookmark.notes %></td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           

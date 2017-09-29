@@ -5,11 +5,11 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Cuisines</dt>
+      <dt>Cuisine</dt>
       <dd>
-        <% if @dish.cuisines.present? %>
-          <a href="/cuisines/<%= @dish.cuisines_id %>">
-            <%= @dish.cuisines.name %>
+        <% if @dish.cuisine.present? %>
+          <a href="/cuisines/<%= @dish.cuisine_id %>">
+            <%= @dish.cuisine.name %>
           </a>
         <% end %>
       </dd>
@@ -75,11 +75,20 @@
           Venue
         </label>
 
-        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :neighborhood_id), :class => "form-control") %>
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for dish_id -->
       <input type="hidden" name="dish_id" value="<%= @dish.id %>">
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"></textarea>
+      </div>
 
       <button class="btn btn-block btn-success">
         Create Bookmark
@@ -90,16 +99,16 @@
   </div>
 </div>
 
-<!-- A Dish has many users -->
+<!-- A Dish has many fans -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Users
+        Fans
       </li>
 
-      <% @dish.users.each do |user| %>
+      <% @dish.fans.each do |user| %>
         <li class="list-group-item">
           <a href="/users/<%= user.id %>">
             <%= user.email %>
@@ -121,19 +130,19 @@
   </div>
 </div>
 
-<!-- A Dish has many venues -->
+<!-- A Dish has many specialist_venues -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Venues
+        Specialist Venues
       </li>
 
-      <% @dish.venues.each do |venue| %>
+      <% @dish.specialist_venues.each do |venue| %>
         <li class="list-group-item">
           <a href="/venues/<%= venue.id %>">
-            <%= venue.neighborhood_id %>
+            <%= venue.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/venues/<%= venue.id %>" class="btn btn-primary">

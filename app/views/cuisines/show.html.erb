@@ -36,7 +36,7 @@
       <% @cuisine.dishes.each do |dish| %>
         <li class="list-group-item">
           <a href="/dishes/<%= dish.id %>">
-            <%= dish.cuisines_id %>
+            <%= dish.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
@@ -57,14 +57,8 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for cuisines_id -->
-      <div class="form-group">
-        <label for="cuisines_id" class="control-label">
-          Cuisines
-        </label>
-
-        <%= select_tag(:cuisines_id, options_from_collection_for_select(Cuisine.all, :id, :name), :class => "form-control") %>
-      </div>
+      <!-- Label and input for cuisine_id -->
+      <input type="hidden" name="cuisine_id" value="<%= @cuisine.id %>">
 
       <!-- Label and input for name -->
       <div class="form-group">
