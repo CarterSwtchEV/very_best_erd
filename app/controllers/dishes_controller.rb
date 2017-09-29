@@ -1,7 +1,7 @@
 class DishesController < ApplicationController
   def index
     @q = Dish.ransack(params[:q])
-    @dishes = @q.result(:distinct => true).includes(:cuisines, :bookmarks, :users, :venues).page(params[:page]).per(10)
+    @dishes = @q.result(:distinct => true).includes(:cuisines, :bookmarks, :fans, :specialist_venues).page(params[:page]).per(10)
 
     render("dishes/index.html.erb")
   end

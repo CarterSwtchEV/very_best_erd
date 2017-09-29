@@ -57,19 +57,19 @@
   </div>
 </div>
 
-<!-- A User has many dishes -->
+<!-- A User has many bookmarked_dishes -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Dishes
+        Bookmarked Dishes
       </li>
 
-      <% @user.dishes.each do |dish| %>
+      <% @user.bookmarked_dishes.each do |dish| %>
         <li class="list-group-item">
           <a href="/dishes/<%= dish.id %>">
-            <%= dish.cuisines_id %>
+            <%= dish.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
@@ -88,19 +88,19 @@
   </div>
 </div>
 
-<!-- A User has many venues -->
+<!-- A User has many bookmarked_venues -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Venues
+        Bookmarked Venues
       </li>
 
-      <% @user.venues.each do |venue| %>
+      <% @user.bookmarked_venues.each do |venue| %>
         <li class="list-group-item">
           <a href="/venues/<%= venue.id %>">
-            <%= venue.neighborhood_id %>
+            <%= venue.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/venues/<%= venue.id %>" class="btn btn-primary">
