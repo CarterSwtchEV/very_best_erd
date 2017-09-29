@@ -36,7 +36,7 @@
       <% @cuisine.dishes.each do |dish| %>
         <li class="list-group-item">
           <a href="/dishes/<%= dish.id %>">
-            <%= dish.cuisines_id %>
+            <%= dish.name %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
             <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
