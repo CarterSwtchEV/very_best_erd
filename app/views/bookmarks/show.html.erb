@@ -18,7 +18,7 @@
       <dd>
         <% if @bookmark.venues.present? %>
           <a href="/venues/<%= @bookmark.venue_id %>">
-            <%= @bookmark.venues.neighborhood_id %>
+            <%= @bookmark.venues.name %>
           </a>
         <% end %>
       </dd>
@@ -27,10 +27,13 @@
       <dd>
         <% if @bookmark.dishes.present? %>
           <a href="/dishes/<%= @bookmark.dish_id %>">
-            <%= @bookmark.dishes.cuisines_id %>
+            <%= @bookmark.dishes.name %>
           </a>
         <% end %>
       </dd>
+
+      <dt>Notes</dt>
+      <dd><%= @bookmark.notes %></dd>
 
     </dl>
 
